@@ -6,3 +6,69 @@ dark-blue - #134d71;
 white - #ffffff;
 black - #000000;
 */
+
+body {
+    background-color: #134d71;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+}
+
+h1 {
+    color: white;
+    padding-bottom: 3em;
+}
+
+h2 {
+    color: white;
+}
+
+.white-box {
+    display: flex;
+    margin: auto;
+    border-radius: 10px;
+    background-color: white;
+    justify-content: center;
+}
+
+label {
+    font-style: italic;
+}
+
+.button-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 6em;
+    width: 40%;
+}
+
+div {
+    padding-bottom: 2em;
+}
+
+label + input {
+    margin-left: 12em;
+}
+
+input + label {
+    padding-left: 1em;
+}
+
+button {
+    background-color: #134d71;
+    color: white;
+    border-radius: 5px;
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.mantra-zone {
+    margin-top: 100px;
+    height: 10em;
+    width: 60%;
+    align-items: center;
+}
+
+
