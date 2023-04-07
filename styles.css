@@ -91,4 +91,8 @@ button {
     align-items: center;
 }
 
+.hidden {
+    visibility: hidden;
+}
+
 
