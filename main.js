@@ -3,11 +3,13 @@ var mantraZone = document.querySelector('.mantra-zone');
 var medidateImg = document.querySelector('img');
 
 var msgSpan = document.createElement('span');
+msgSpan.classList.add('hidden');
 mantraZone.appendChild(msgSpan);
 receiveMessageButton.addEventListener('click', function () {
     var messageTypeStr = document.querySelector('input[name="message-type"]:checked').value;
     medidateImg.classList.add('hidden');
     msgSpan.innerText = getMessage(messageTypeStr);
+    msgSpan.classList.remove('hidden');
 });
 
 function getMessage(messageTypeStr) {
