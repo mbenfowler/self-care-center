@@ -7,8 +7,12 @@ white - #ffffff;
 black - #000000;
 */
 
+html {
+    background: linear-gradient(#134d71 16%, #78a7c6, #f7e4bf);
+    height: 100%;
+}
+
 body {
-    background-color: #134d71;
     text-align: center;
     font-family: 'Quicksand', sans-serif;
 }
@@ -24,11 +28,10 @@ h2 {
 }
 
 .white-box {
-    display: flex;
     margin: auto;
+    min-width: 372px;
     border-radius: 10px;
     background-color: white;
-    justify-content: center;
 }
 
 label {
@@ -43,9 +46,10 @@ label {
     width: 40%;
 }
 
-div {
+.input-div {
     width: 90%;
     padding-bottom: 2em;
+    padding-top: 1em;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -67,6 +71,14 @@ input {
     margin-right: 1.5em;
 }
 
+.grow {
+    transition: all .5s ease-in-out;
+}
+
+.grow:hover {
+    transform: scale(2);
+}
+
 button {
     background-color: #134d71;
     color: white;
@@ -80,17 +92,68 @@ button {
 .mantra-zone {
     margin-top: 100px;
     width: 60%;
-    display: flex;
-    align-items: center;
 }
 
 .mantra-zone > span {
-    margin: 20%;
+    justify-content: center;
+    padding: 3em;
     font-style: italic;
 }
 
 img {
     margin: 3em;
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner:before {
+    content: '';
+    display: inline-flex;
+    justify-content: center;
+    margin: 2em;
+    padding: 2em;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #f6f;
+    border-top-color: #0e0;
+    border-right-color: #0dd;
+    border-bottom-color: #f90;
+    animation: spinner .6s linear infinite;
+}
+
+#hideMeAfter2Seconds {
+    animation: hideAnimation 0s ease-in 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hideAnimation {
+    to {
+        visibility: hidden;
+        width: 0;
+        height: 0;
+    }
+}
+
+#revealMeAfter2Seconds {
+    animation: fadeInMsg 10s;
+}
+
+@keyframes fadeInMsg {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .hidden {

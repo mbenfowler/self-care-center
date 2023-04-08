@@ -1,25 +1,46 @@
 var receiveMessageButton = document.querySelector('button');
 var mantraZone = document.querySelector('.mantra-zone');
-var medidateImg = document.querySelector('img');
+var meditateImg = document.querySelector('img');
 
 var msgSpan = document.createElement('span');
 msgSpan.classList.add('hidden');
 mantraZone.appendChild(msgSpan);
+
+var spinner = document.createElement('div');
+spinner.classList.add('spinner', 'hidden');
+spinner.setAttribute('id', 'hideMeAfter2Seconds');
+mantraZone.appendChild(spinner);
+
+var sparkleEmoji = String.fromCodePoint(0x2728);  // this function stringifies emoji code
+
 receiveMessageButton.addEventListener('click', function () {
+    msgSpan.classList.add('hidden');
+    resetAnimation(spinner);
+    mantraZone.removeChild(msgSpan);
     var messageTypeStr = document.querySelector('input[name="message-type"]:checked').value;
-    medidateImg.classList.add('hidden');
-    msgSpan.innerText = getMessage(messageTypeStr);
+    meditateImg.classList.add('hidden');
+    spinner.classList.remove('hidden');
+    var msgText = `${sparkleEmoji} ${getMessage(messageTypeStr)} ${sparkleEmoji}`
+    msgSpan.innerText = msgText;
+    msgSpan.setAttribute('id', 'revealMeAfter2Seconds')
+    mantraZone.appendChild(msgSpan);
     msgSpan.classList.remove('hidden');
 });
 
 function getMessage(messageTypeStr) {
-    var strToVar = eval(`${messageTypeStr}s`)
+    var strToVar = eval(`${messageTypeStr}s`)  // eval() was the easiest way I found to use our incoming string to access the similarly named data arrays
     var randomMessage = strToVar[getRandomIndex(strToVar)];
     return randomMessage;
 }
 
 function getRandomIndex(array) {
     return Math.floor(Math.random() * array.length);
+}
+
+function resetAnimation(el) {
+    el.style.animation = 'none';
+    el.offsetHeight; // this is one of the props that triggers reflow automatically
+    el.style.animation = ''; // setting this to empty string forces inheritance from css again
 }
 
 var affirmations = [
@@ -50,13 +71,13 @@ var affirmations = [
     "You need a checkup from the neckup.",
     "I am a human being, not a human doing.",
     "Pee-wee Herman: There but for the grace of God go I.",
-    "It’s easier to put on slippers than to carpet the whole world.",
+    `It’s easier to put on slippers than to carpet the whole world.`,
     "Labels disable."
 ];
 
 var mantras = [
     "Breathing in, I send myself love. Breathing out, I send love to someone else who needs it.",
-    "Don’t let yesterday take up too much of today.",
+    `Don’t let yesterday take up too much of today.`,
     "Every day is a second chance.",
     "Tell the truth and love everyone.",
     "I am free from sadness.",
