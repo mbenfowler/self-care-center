@@ -69,13 +69,10 @@ span {
 
 input {
     margin-right: 1.5em;
-}
-
-.grow {
     transition: all .5s ease-in-out;
 }
 
-.grow:hover {
+input:hover {
     transform: scale(2);
 }
 

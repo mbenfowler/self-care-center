@@ -1,3 +1,4 @@
+var page = document.querySelector('html');
 var receiveMessageButton = document.querySelector('button');
 var mantraZone = document.querySelector('.mantra-zone');
 var meditateImg = document.querySelector('img');
@@ -18,6 +19,7 @@ receiveMessageButton.addEventListener('click', function () {
     resetAnimation(spinner);
     mantraZone.removeChild(msgSpan);
     var messageTypeStr = document.querySelector('input[name="message-type"]:checked').value;
+    changeBackground(messageTypeStr);
     meditateImg.classList.add('hidden');
     spinner.classList.remove('hidden');
     var msgText = `${sparkleEmoji} ${getMessage(messageTypeStr)} ${sparkleEmoji}`
@@ -27,6 +29,14 @@ receiveMessageButton.addEventListener('click', function () {
     msgSpan.classList.remove('hidden');
 });
 
+function changeBackground(msgType) {
+    if(msgType === 'affirmation') {
+        page.style.background = `linear-gradient(#D9AFD9 16%, #97D9E1)`;
+    } else {
+        page.style.background = `linear-gradient(#85FFBD 16%, #FFFB7D)`;
+    }
+}
+ 
 function getMessage(messageTypeStr) {
     var strToVar = eval(`${messageTypeStr}s`)  // eval() was the easiest way I found to use our incoming string to access the similarly named data arrays
     var randomMessage = strToVar[getRandomIndex(strToVar)];
