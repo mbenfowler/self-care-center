@@ -26,7 +26,9 @@ receiveMessageButton.addEventListener('click', function () {
     msgSpan.innerText = msgText;
     msgSpan.setAttribute('id', 'revealMeAfter10Seconds')
     mantraZone.appendChild(msgSpan);
-    msgSpan.classList.remove('hidden');
+    setTimeout(() => {
+        msgSpan.classList.remove('hidden');
+    }, 2000);
 });
 
 function changeBackground(msgType) {
