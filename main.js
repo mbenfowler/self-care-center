@@ -9,7 +9,7 @@ mantraZone.appendChild(msgSpan);
 
 var spinner = document.createElement('div');
 spinner.classList.add('spinner', 'hidden');
-spinner.setAttribute('id', 'hideMeAfter2Seconds');
+spinner.setAttribute('id', 'fadeAndHide');
 mantraZone.appendChild(spinner);
 
 var sparkleEmoji = String.fromCodePoint(0x2728);  // this function stringifies emoji code
@@ -24,7 +24,7 @@ receiveMessageButton.addEventListener('click', function () {
     spinner.classList.remove('hidden');
     var msgText = `${sparkleEmoji} ${getMessage(messageTypeStr)} ${sparkleEmoji}`
     msgSpan.innerText = msgText;
-    msgSpan.setAttribute('id', 'revealMeAfter2Seconds')
+    msgSpan.setAttribute('id', 'revealMeAfter10Seconds')
     mantraZone.appendChild(msgSpan);
     msgSpan.classList.remove('hidden');
 });

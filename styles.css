@@ -93,12 +93,12 @@ button {
 
 .mantra-zone > span {
     justify-content: center;
-    padding: 3em;
+    padding: 4.3em;
     font-style: italic;
 }
 
 img {
-    margin: 3em;
+    margin: 2em;
 }
 
 @keyframes spinner {
@@ -110,7 +110,6 @@ img {
 .spinner:before {
     content: '';
     display: inline-flex;
-    justify-content: center;
     margin: 2em;
     padding: 2em;
     position: relative;
@@ -124,9 +123,18 @@ img {
     animation: spinner .6s linear infinite;
 }
 
-#hideMeAfter2Seconds {
-    animation: hideAnimation 0s ease-in 2s;
+#fadeAndHide {
+    animation: fadeOut 3s, hideAnimation 0s ease-in 2s;
     animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+    40% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 @keyframes hideAnimation {
@@ -137,11 +145,11 @@ img {
     }
 }
 
-#revealMeAfter2Seconds {
-    animation: fadeInMsg 10s;
+#revealMeAfter10Seconds {
+    animation: fadeIn 10s;
 }
 
-@keyframes fadeInMsg {
+@keyframes fadeIn {
     0% {
         opacity: 0;
     }
