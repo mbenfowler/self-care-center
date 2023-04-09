@@ -87,6 +87,10 @@ button {
 }
 
 .mantra-zone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
     margin-top: 100px;
     width: 60%;
 }
@@ -101,16 +105,10 @@ img {
     margin: 2em;
 }
 
-@keyframes spinner {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
 .spinner:before {
     content: '';
     display: inline-flex;
-    margin: 2em;
+    margin: 2em 2em -4em 2em;
     padding: 2em;
     position: relative;
     width: 50px;
@@ -121,6 +119,12 @@ img {
     border-right-color: #0dd;
     border-bottom-color: #f90;
     animation: spinner .6s linear infinite;
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 #fadeAndHide {
