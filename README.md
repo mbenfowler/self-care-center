@@ -5,6 +5,7 @@ This self care app provides the user a randomly generated message based on the t
 
 #### Features:
 - Choose which type of message you wish to receive - Affirmation or Mantra
+    - error validation + animation if no message type is chosen
 - Animations included:
     - radio buttons grow on hover
     - dynamic gradient backgrounds based on type of message requested
