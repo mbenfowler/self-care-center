@@ -167,11 +167,11 @@ img {
 @keyframes bounce {
     0% { transform: scale(1); }
     70% { transform:translateY(0%) scale(1.5); }
-    80% { transform:translateY(-15%) scale(1.5);; }
-    90% { transform:translateY(0%) scale(1.5);; }
-    95% { transform:translateY(-7%) scale(1.5);; }
-    97% { transform:translateY(0%) scale(1.5);; }
-    99% { transform:translateY(-3%) scale(1.5);; }
+    80% { transform:translateY(-15%) scale(1.5); }
+    90% { transform:translateY(0%) scale(1.5); }
+    95% { transform:translateY(-7%) scale(1.5); }
+    97% { transform:translateY(0%) scale(1.5); }
+    99% { transform:translateY(-3%) scale(1.5); }
     100% { transform:translateY(0) scale(1.5); }
 }
 
