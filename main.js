@@ -13,16 +13,28 @@ spinner.setAttribute('id', 'fadeAndHide');
 mantraZone.appendChild(spinner);
 
 var sparkleEmoji = String.fromCodePoint(0x2728);  // this function stringifies emoji code
+var messageTypeStr;
+var msgText;
 
 receiveMessageButton.addEventListener('click', function () {
+    if(validateRadioButtons()) {
+        messageTypeStr = document.querySelector('input[name="message-type"]:checked').value || messageTypeStr;
+    } else {
+        msgSpan.innerText = "^^ Please select a message type! ^^";
+        msgSpan.setAttribute('id', 'validation');
+        mantraZone.appendChild(msgSpan);
+        meditateImg.classList.add('hidden');
+        msgSpan.classList.remove('hidden');
+        return;
+    }
+
     msgSpan.classList.add('hidden');
     resetAnimation(spinner);
     mantraZone.removeChild(msgSpan);
-    var messageTypeStr = document.querySelector('input[name="message-type"]:checked').value;
     changeBackground(messageTypeStr);
     meditateImg.classList.add('hidden');
     spinner.classList.remove('hidden');
-    var msgText = `${sparkleEmoji} ${getMessage(messageTypeStr)} ${sparkleEmoji}`
+    msgText = `${sparkleEmoji} ${getMessage(messageTypeStr)} ${sparkleEmoji}`
     msgSpan.innerText = msgText;
     msgSpan.setAttribute('id', 'revealMeAfter10Seconds')
     mantraZone.appendChild(msgSpan);
@@ -30,6 +42,19 @@ receiveMessageButton.addEventListener('click', function () {
         msgSpan.classList.remove('hidden');
     }, 2000);
 });
+
+function validateRadioButtons() {
+    var radios = document.getElementsByName('message-type');
+    var radioChecked = false;
+
+    radios.forEach((radio) => {
+        if(radio.checked) {
+            radioChecked = true;
+        }
+    });
+
+    return radioChecked;
+}
 
 function changeBackground(msgType) {
     if(msgType === 'affirmation') {
