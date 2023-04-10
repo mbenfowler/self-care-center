@@ -8,13 +8,14 @@ black - #000000;
 */
 
 html {
-    background: linear-gradient(#134d71 16%, #78a7c6, #f7e4bf);
+    background: no-repeat center center fixed linear-gradient(#134d71 16%, #78a7c6, #f7e4bf);
     height: 100%;
 }
 
 body {
     text-align: center;
     font-family: 'Quicksand', sans-serif;
+    min-width: 372px;
 }
 
 h1 {
