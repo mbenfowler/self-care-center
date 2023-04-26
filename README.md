@@ -1,4 +1,6 @@
-# Self-Care Center 
+# Self-Care Center
+Visit site here: https://mbenfowler.github.io/self-care-center/
+
 ### Abstract:
 [//]: <> (Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
 This self care app provides the user a randomly generated message based on the type of message requested - Affirmation or Mantra! It is the hope that the user will find a message that speaks to them or provides an instant insight or focus to bring in a more positive balance.
